@@ -1,0 +1,89 @@
+
+// Trading Keys MT4 - Forex Risk Calculator
+// Developer's Site: forexroboteasy.com
+// Development: Forex Robot Easy Team
+
+// Define necessary variables
+double accountBalance;
+double equityPercentage;
+double stopLossLevel;
+double entryPoint;
+double profitLevel;
+
+// Calculate risk based on account balance or equity percentage
+double calculateRisk() {
+    double risk;
+    if (accountBalance > 0) {
+        risk = accountBalance * equityPercentage / 100;
+    } else {
+        Print('Account balance is zero. Please deposit funds.');
+        return 0;
+    }
+    return risk;
+}
+
+// Define profit protection and trailing toggle button
+bool profitProtectionEnabled = false;
+
+void enableProfitProtection() {
+    profitProtectionEnabled = true;
+    // Implement profit protection logic here
+}
+
+void disableProfitProtection() {
+    profitProtectionEnabled = false;
+    // Implement disable profit protection logic here
+}
+
+// Function to define profit, stop loss levels, and entry points using drag and drop visual lines
+void defineLevels() {
+    // Implement drag and drop logic here to define levels
+}
+
+// Function to represent the trading plan visually
+void visualizeTradingPlan() {
+    // Implement visual representation logic here
+}
+
+// Function to mitigate potential losses effectively
+void mitigateLosses() {
+    // Implement loss mitigation logic here
+}
+
+// Function to manage risk and enhance profitability
+void manageRiskAndProfitability() {
+    calculateRisk();
+    defineLevels();
+    visualizeTradingPlan();
+    mitigateLosses();
+    if (profitProtectionEnabled) {
+        enableProfitProtection();
+    } else {
+        disableProfitProtection();
+    }
+}
+
+// Main entry point
+int OnInit() {
+    // Set initial values for variables
+    accountBalance = 10000;
+    equityPercentage = 2;
+    stopLossLevel = 1.5;
+    entryPoint = 1.2;
+    profitLevel = 1.8;
+
+    // Call function to manage risk and profitability
+    manageRiskAndProfitability();
+
+    return(INIT_SUCCEEDED);
+}
+
+// Program execution starts here
+void OnTick() {
+    // Implement trading logic here
+}
+
+// Program termination
+void OnDeinit(const int reason) {
+    // Implement cleanup logic here
+}
